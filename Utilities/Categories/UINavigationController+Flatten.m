@@ -6,20 +6,9 @@
 //  Copyright (c) 2013年 Hirohisa Kawasaki. All rights reserved.
 //
 
-#import <objc/runtime.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UINavigationController+Flatten.h"
-
-void SwizzleInstanceMethodd(Class c, SEL original, SEL alternative)
-{
-    Method orgMethod = class_getInstanceMethod(c, original);
-    Method altMethod = class_getInstanceMethod(c, alternative);
-    if(class_addMethod(c, original, method_getImplementation(altMethod), method_getTypeEncoding(altMethod))) {
-        class_replaceMethod(c, alternative, method_getImplementation(orgMethod), method_getTypeEncoding(orgMethod));
-    } else {
-        method_exchangeImplementations(orgMethod, altMethod);
-    }
-}
+#import "Definitions.h"
 
 static CGFloat const kFlattenPadding = 5.;
 
@@ -86,7 +75,7 @@ static CGFloat const kFlattenPadding = 5.;
 + (void)load
 {
     @autoreleasepool {
-        SwizzleInstanceMethodd(self, @selector(initWithNibName:bundle:), @selector(_initWithNibName:bundle:));
+        SwizzleInstanceMethod(self, @selector(initWithNibName:bundle:), @selector(_initWithNibName:bundle:));
     }
 }
 
