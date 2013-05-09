@@ -1,5 +1,5 @@
 //
-//  Definitions.h
+//  UTDefinitions.h
 //  Utilities
 //
 //  Created by Hirohisa Kawasaki on 13/05/07.

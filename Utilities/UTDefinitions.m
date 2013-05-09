@@ -1,5 +1,5 @@
 //
-//  Definitions.m
+//  UTDefinitions.m
 //  Utilities
 //
 //  Created by Hirohisa Kawasaki on 13/05/07.
@@ -7,7 +7,7 @@
 //
 
 #import <objc/runtime.h>
-#import "Definitions.h"
+#import "UTDefinitions.h"
 
 void SwizzleInstanceMethod(Class c, SEL original, SEL alternative)
 {
