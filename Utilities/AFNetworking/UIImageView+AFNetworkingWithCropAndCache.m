@@ -13,31 +13,47 @@
 @implementation UIImageView (AFNetworkingWithCropAndCache)
 
 #pragma mark - public
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached
 {
-    [self setImageWithURL:url placeholderImage:placeholderImage crop:size cache:YES];
+    __block UIImageView *blockSelf = self;
+    [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
+        if (image != nil) {
+            blockSelf.image = image;
+        }
+    }];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cache:(BOOL)cache
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size
+{
+    [self setImageWithURL:url placeholderImage:placeholderImage crop:size cached:YES];
+}
+
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached
+{
+    __block UIImageView *blockSelf = self;
+    [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
+        if (image != nil) {
+            blockSelf.image = [blockSelf crop:image size:size];
+        }
+    }];
+}
+
+#pragma mark - private
+#pragma mark - request
+- (void)requestImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached response:(void (^)(UIImage *))response
 {
     NSData *data = nil;
     if ((data = [[FileCache sharedCache] get:[url absoluteString]])) {
-        self.image = [self crop:[[UIImage alloc] initWithData:data] size:size];
-        return;
+        response([[UIImage alloc] initWithData:data]);
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    __block UIImageView *blockSelf = self;
-    [self setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
-        if (cache) {
-            [[FileCache sharedCache] set:[url absoluteString]
-                                    data:[[NSData alloc] initWithData:UIImagePNGRepresentation(image)]];
-        }
-         blockSelf.image = [blockSelf crop:image size:size];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
+    [self setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *res, UIImage *image){
+        response(image);
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *res, NSError *error){
+        response(nil);
+    }];
 }
 
-
-#pragma mark - private
 #pragma mark - crop
 -(UIImage*)crop:(UIImage*)image size:(CGSize)size
 {

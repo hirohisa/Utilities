@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImageView (AFNetworkingWithCropAndCache)
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached;
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size;
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cache:(BOOL)cache;
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached;
 @end
