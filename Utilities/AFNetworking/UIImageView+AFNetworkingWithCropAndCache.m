@@ -13,28 +13,30 @@
 @implementation UIImageView (AFNetworkingWithCropAndCache)
 
 #pragma mark - public
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached finished:(void (^)(BOOL))finished
 {
     __block UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
         if (image != nil) {
             blockSelf.image = image;
         }
+        finished(YES);
     }];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size finished:(void (^)(BOOL))finished
 {
-    [self setImageWithURL:url placeholderImage:placeholderImage crop:size cached:YES];
+    [self setImageWithURL:url placeholderImage:placeholderImage crop:size cached:YES finished:finished];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached finished:(void (^)(BOOL))finished
 {
     __block UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
         if (image != nil) {
             blockSelf.image = [blockSelf crop:image size:size];
         }
+        finished(YES);
     }];
 }
 
