@@ -33,8 +33,7 @@
                                     data:[[NSData alloc] initWithData:UIImagePNGRepresentation(image)]];
         }
          blockSelf.image = [blockSelf crop:image size:size];
-    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
-    }];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){}];
 }
 
 
