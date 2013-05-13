@@ -20,7 +20,7 @@
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size
 {
     NSData *data = nil;
-    if ((data = [[FileCache sharedCache] get:[url absoluteString]]) != nil) {
+    if ((data = [[FileCache sharedCache] get:[url absoluteString]])) {
         self.image = [self crop:[[UIImage alloc] initWithData:data] size:size];
     } else {
         [self setImageWithURL:url placeholderImage:placeholderImage crop:size cache:YES];
@@ -30,8 +30,6 @@
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cache:(BOOL)cache
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
-    [request setHTTPShouldHandleCookies:NO];
-    [request setHTTPShouldUsePipelining:YES];
     __block UIImageView *blockSelf = self;
     [self setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image){
         if (cache) {

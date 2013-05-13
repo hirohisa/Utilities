@@ -57,24 +57,22 @@
 
 #pragma mark - public
 - (BOOL)flush {
-    return [[FileCache sharedCache] removeFiles];
+    return [self removeFiles];
 }
 
 - (BOOL)build {
-    return [[FileCache sharedCache] existsOrCreatePath];
+    return [self existsOrCreatePath];
 }
 
 - (BOOL)set:(NSString *)path data:(NSData *)data
 {
-    //DEBUG_LOG;
-    //LOG(@"%@", [self.fileManager contentsOfDirectoryAtPath:_directoryPath error:NULL]);
+    //NSLog(@"%@", [self.fileManager contentsOfDirectoryAtPath:_directoryPath error:NULL]);
     BOOL result = [data writeToFile:[self encode:path] atomically:YES];
     return result;
 }
 
 - (NSData *)get:(NSString *)path {
-    //DEBUG_LOG;
-    //LOG(@"%@", [self.fileManager contentsOfDirectoryAtPath:_directoryPath error:NULL]);
+    //NSLog(@"%@", [self.fileManager contentsOfDirectoryAtPath:_directoryPath error:NULL]);
     return [NSData dataWithContentsOfFile:[self encode:path]];
 }
 
