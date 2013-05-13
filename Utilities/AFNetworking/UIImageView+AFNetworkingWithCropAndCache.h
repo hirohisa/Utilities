@@ -1,5 +1,5 @@
 //
-//  UIImageView+AFNetworkingWithCrop.h
+//  UIImageView+AFNetworkingWithCropAndCache.h
 //  Utilities
 //
 //  Created by Hirohisa Kawasaki on 12/08/06.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (AFNetworkingWithCrop)
+@interface UIImageView (AFNetworkingWithCropAndCache)
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size;
-- (void)setImageWithURL:(NSURL *)url crop:(CGSize)size;
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cache:(BOOL)cache;
 @end
