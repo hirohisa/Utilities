@@ -87,14 +87,20 @@
 - (BOOL)removeFiles
 {
     NSArray *filePaths = [self.fileManager contentsOfDirectoryAtPath:self.directoryPath error:NULL];
+    BOOL hasError = NO;
     for (NSString *filePath in filePaths) {
         NSString *path = [NSString stringWithFormat:@"%@/%@", self.directoryPath, filePath];
+        NSError *error = nil;
+        [self.fileManager removeItemAtPath:path error:&error];
+        if (error != nil) hasError = YES;
+        /*
         NSDictionary *dic = [self.fileManager attributesOfItemAtPath:path error:NULL];
         if (![[dic objectForKey:NSFileType] isEqualToString:NSFileTypeRegular]) {
             [self.fileManager removeItemAtPath:path error:NULL];
         }
+         */
     }
-    return YES;
+    return !hasError;
 }
 
 - (BOOL)remove:(NSString *)path
