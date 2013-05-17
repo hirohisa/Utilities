@@ -103,11 +103,6 @@
     return !hasError;
 }
 
-- (BOOL)remove:(NSString *)path
-{
-    return [self.fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", self.directoryPath, [self encode:path]] error:NULL];
-}
-
 #pragma mark - encoding
 - (NSString *)encode:(NSString *)path {
     NSString *escaped = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(
