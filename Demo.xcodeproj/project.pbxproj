@@ -16,9 +16,11 @@
 		10302572172F8C98002FB414 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 10302571172F8C98002FB414 /* Default.png */; };
 		10302574172F8C98002FB414 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10302573172F8C98002FB414 /* Default@2x.png */; };
 		10302576172F8C98002FB414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10302575172F8C98002FB414 /* Default-568h@2x.png */; };
-		10302581172F8CE6002FB414 /* NSDate+Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = 1030257E172F8CE6002FB414 /* NSDate+Comparison.m */; };
 		10302585172F8D09002FB414 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10302584172F8D09002FB414 /* DemoViewController.m */; };
-		10302588172F8D2D002FB414 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 10302587172F8D2D002FB414 /* UIColor+Hex.m */; };
+		A1B9CB9F1746813E0056E32F /* NSDate+Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB961746813E0056E32F /* NSDate+Comparison.m */; };
+		A1B9CBA01746813E0056E32F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB981746813E0056E32F /* UIColor+Hex.m */; };
+		A1B9CBA11746813E0056E32F /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB9B1746813E0056E32F /* FileCache.m */; };
+		A1B9CBA21746813E0056E32F /* UTDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB9D1746813E0056E32F /* UTDefinitions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,12 +37,16 @@
 		10302571172F8C98002FB414 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		10302573172F8C98002FB414 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		10302575172F8C98002FB414 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		1030257D172F8CE6002FB414 /* NSDate+Comparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Comparison.h"; sourceTree = "<group>"; };
-		1030257E172F8CE6002FB414 /* NSDate+Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Comparison.m"; sourceTree = "<group>"; };
 		10302583172F8D09002FB414 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		10302584172F8D09002FB414 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		10302586172F8D2D002FB414 /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		10302587172F8D2D002FB414 /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		A1B9CB951746813E0056E32F /* NSDate+Comparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Comparison.h"; sourceTree = "<group>"; };
+		A1B9CB961746813E0056E32F /* NSDate+Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Comparison.m"; sourceTree = "<group>"; };
+		A1B9CB971746813E0056E32F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		A1B9CB981746813E0056E32F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		A1B9CB9A1746813E0056E32F /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
+		A1B9CB9B1746813E0056E32F /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
+		A1B9CB9C1746813E0056E32F /* UTDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTDefinitions.h; sourceTree = "<group>"; };
+		A1B9CB9D1746813E0056E32F /* UTDefinitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTDefinitions.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +66,7 @@
 		10302553172F8C98002FB414 = {
 			isa = PBXGroup;
 			children = (
-				1030257C172F8CE6002FB414 /* Categories */,
+				A1B9CB901746813E0056E32F /* Utilities */,
 				10302565172F8C98002FB414 /* Demo */,
 				1030255E172F8C98002FB414 /* Frameworks */,
 				1030255D172F8C98002FB414 /* Products */,
@@ -111,15 +117,35 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1030257C172F8CE6002FB414 /* Categories */ = {
+		A1B9CB901746813E0056E32F /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				1030257D172F8CE6002FB414 /* NSDate+Comparison.h */,
-				1030257E172F8CE6002FB414 /* NSDate+Comparison.m */,
-				10302586172F8D2D002FB414 /* UIColor+Hex.h */,
-				10302587172F8D2D002FB414 /* UIColor+Hex.m */,
+				A1B9CB941746813E0056E32F /* Categories */,
+				A1B9CB991746813E0056E32F /* Modules */,
+				A1B9CB9C1746813E0056E32F /* UTDefinitions.h */,
+				A1B9CB9D1746813E0056E32F /* UTDefinitions.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A1B9CB941746813E0056E32F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9CB951746813E0056E32F /* NSDate+Comparison.h */,
+				A1B9CB961746813E0056E32F /* NSDate+Comparison.m */,
+				A1B9CB971746813E0056E32F /* UIColor+Hex.h */,
+				A1B9CB981746813E0056E32F /* UIColor+Hex.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		A1B9CB991746813E0056E32F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A1B9CB9A1746813E0056E32F /* FileCache.h */,
+				A1B9CB9B1746813E0056E32F /* FileCache.m */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,9 +215,11 @@
 			files = (
 				1030256C172F8C98002FB414 /* main.m in Sources */,
 				10302570172F8C98002FB414 /* AppDelegate.m in Sources */,
-				10302581172F8CE6002FB414 /* NSDate+Comparison.m in Sources */,
 				10302585172F8D09002FB414 /* DemoViewController.m in Sources */,
-				10302588172F8D2D002FB414 /* UIColor+Hex.m in Sources */,
+				A1B9CB9F1746813E0056E32F /* NSDate+Comparison.m in Sources */,
+				A1B9CBA01746813E0056E32F /* UIColor+Hex.m in Sources */,
+				A1B9CBA11746813E0056E32F /* FileCache.m in Sources */,
+				A1B9CBA21746813E0056E32F /* UTDefinitions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
