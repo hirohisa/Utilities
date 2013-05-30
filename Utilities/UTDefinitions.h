@@ -29,7 +29,7 @@ extern void SwizzleInstanceMethod(Class c, SEL original, SEL alternative);
 #if __has_feature(objc_arc_weak) // iOS 5 or above
 #define __block_weak        __weak
 #elif __has_feature(objc_arc)    // iOS 4.X
-#define __block_weak        __block
+#define __block_weak        __unsafe_unretained
 #else                            // iOS 3.X or non-ARC projects
 #define __block_weak        __block
 #endif
