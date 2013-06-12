@@ -24,17 +24,20 @@
     }];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size finished:(void (^)(BOOL))finished
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage
+                   crop:(CGSize)size type:(ImageViewCropType)type finished:(void (^)(BOOL))finished
 {
-    [self setImageWithURL:url placeholderImage:placeholderImage crop:size cached:YES finished:finished];
+    [self setImageWithURL:url placeholderImage:placeholderImage crop:size type:type cached:YES finished:finished];
 }
 
-- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached finished:(void (^)(BOOL))finished
+- (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage
+                   crop:(CGSize)size  type:(ImageViewCropType)type
+                 cached:(BOOL)cached finished:(void (^)(BOOL))finished
 {
     __block_weak UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
         if (image != nil) {
-            blockSelf.image = [blockSelf crop:image size:size];
+            blockSelf.image = [blockSelf crop:image size:size type:type];
         }
         finished(YES);
     }];
@@ -57,9 +60,9 @@
 }
 
 #pragma mark - crop
--(UIImage*)crop:(UIImage*)image size:(CGSize)size
+-(UIImage*)crop:(UIImage*)image size:(CGSize)size type:(ImageViewCropType)type
 {
-    return [self trim:image size:[self trimSize:image size:size]];
+    return [self trim:image size:[self trimSize:image size:size type:(ImageViewCropType)type]];
 }
 
 - (UIImage*)trim:(UIImage*)image size:(CGSize)size
@@ -72,11 +75,16 @@
     return trimmedImage;
 }
 
-- (CGSize)trimSize:(UIImage*)image size:(CGSize)size
+- (CGSize)trimSize:(UIImage*)image size:(CGSize)size type:(ImageViewCropType)type
 {
     CGFloat widthRatio  = image.size.width/size.width;
     CGFloat heightRatio = image.size.height/size.height;
     CGFloat ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
+    if (type == ImageViewCropTypeWidth) {
+        ratio = widthRatio;
+    } else if (type == ImageViewCropTypeHeight) {
+        ratio = heightRatio;
+    }
     return CGSizeMake(size.width * ratio, size.height * ratio);
 }
 @end
