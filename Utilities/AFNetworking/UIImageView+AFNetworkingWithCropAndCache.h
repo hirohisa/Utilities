@@ -10,8 +10,8 @@
 
 typedef enum {
     ImageViewCropTypeNone = 0,
-    ImageViewCropTypeWidth = 1,
-    ImageViewCropTypeHeight = 2
+    ImageViewCropTypeAdjustWidth = 1,
+    ImageViewCropTypeAdjustHeight = 2
 } ImageViewCropType;
 
 @interface UIImageView (AFNetworkingWithCropAndCache)

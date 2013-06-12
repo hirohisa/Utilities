@@ -80,9 +80,9 @@
     CGFloat widthRatio  = image.size.width/size.width;
     CGFloat heightRatio = image.size.height/size.height;
     CGFloat ratio = (widthRatio < heightRatio) ? widthRatio : heightRatio;
-    if (type == ImageViewCropTypeWidth) {
+    if (type == ImageViewCropTypeAdjustWidth) {
         ratio = widthRatio;
-    } else if (type == ImageViewCropTypeHeight) {
+    } else if (type == ImageViewCropTypeAdjustHeight) {
         ratio = heightRatio;
     }
     return CGSizeMake(size.width * ratio, size.height * ratio);
