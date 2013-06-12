@@ -15,7 +15,7 @@
 #pragma mark - public
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached finished:(void (^)(BOOL))finished
 {
-    __block UIImageView *blockSelf = self;
+    __block_weak UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
         if (image != nil) {
             blockSelf.image = image;
@@ -31,7 +31,7 @@
 
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage crop:(CGSize)size cached:(BOOL)cached finished:(void (^)(BOOL))finished
 {
-    __block UIImageView *blockSelf = self;
+    __block_weak UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
         if (image != nil) {
             blockSelf.image = [blockSelf crop:image size:size];
