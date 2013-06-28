@@ -9,12 +9,12 @@
 #import "NSString+Calcurate.h"
 
 @implementation NSString (Calcurate)
--(CGFloat)sizeForWidth:(CGFloat)width font:(UIFont *)font
+-(CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font
 {
 	CGSize boundingSize = CGSizeMake(width, CGFLOAT_MAX);
 	CGSize size = [self sizeWithFont:font
                         constrainedToSize:boundingSize
                             lineBreakMode:UILineBreakModeWordWrap];
-	return size.height;
+	return size;
 }
 @end
