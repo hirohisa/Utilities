@@ -1,5 +1,5 @@
 //
-//  UIView+Calcurate.h
+//  NSString+Calcurate.h
 //  Utilities
 //
 //  Created by Hirohisa Kawasaki on 13/06/10.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Calcurate)
--(CGFloat)textHeight:(NSString*)text width:(CGFloat)width font:(UIFont *)font;
+@interface NSString (Calcurate)
+-(CGFloat)sizeForWidth:(CGFloat)width font:(UIFont *)font;
 @end
