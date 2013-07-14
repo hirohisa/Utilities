@@ -14,7 +14,7 @@
 	CGSize boundingSize = CGSizeMake(width, CGFLOAT_MAX);
 	CGSize size = [self sizeWithFont:font
                         constrainedToSize:boundingSize
-                            lineBreakMode:UILineBreakModeWordWrap];
+                            lineBreakMode:NSLineBreakByCharWrapping];
 	return size;
 }
 @end
