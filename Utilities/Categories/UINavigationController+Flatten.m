@@ -10,8 +10,6 @@
 #import "UINavigationController+Flatten.h"
 #import "UTDefinitions.h"
 
-static CGFloat const kFlattenPadding = 5.;
-
 @interface UIFlattenNavigationBar : UINavigationBar
 @property (nonatomic, strong) UIColor *color;
 @end
@@ -25,16 +23,8 @@ static CGFloat const kFlattenPadding = 5.;
     [self layoutIfNeeded];
 }
 
-- (void)layoutSubviews
-{
-    UINavigationItem *item = [self.items lastObject];
-    item.leftBarButtonItem.customView.center = CGPointMake(30., 24.5);
-    item.titleView.center = CGPointMake(item.titleView.center.x, 24.5);
-}
-
 - (void)drawRect:(CGRect)rect {
     CGContextRef context = UIGraphicsGetCurrentContext();
-    rect = CGRectMake(kFlattenPadding, kFlattenPadding, CGRectGetWidth(rect)-kFlattenPadding*2, CGRectGetHeight(rect)-kFlattenPadding);
     CGContextSetFillColorWithColor(context, [self.color CGColor]);
     CGContextFillRect(context, rect);
 }
