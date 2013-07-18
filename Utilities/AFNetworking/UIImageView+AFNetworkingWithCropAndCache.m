@@ -8,7 +8,6 @@
 
 #import "UIImageView+AFNetworkingWithCropAndCache.h"
 #import "UIImageView+AFNetworking.h"
-#import "FileCache.h"
 
 @implementation UIImageView (AFNetworkingWithCropAndCache)
 
@@ -47,16 +46,9 @@
 #pragma mark - request
 - (void)requestImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached response:(void (^)(UIImage *))response
 {
-    NSData *data = nil;
-    if ((data = [[FileCache sharedCache] get:[url absoluteString]])) {
-        response([[UIImage alloc] initWithData:data]);
-    }
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
+    NSURLRequestCachePolicy cachePolicy = cached?NSURLRequestUseProtocolCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:cachePolicy timeoutInterval:30.0];
     [self setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *res, UIImage *image){
-        if (cached) {
-            [[FileCache sharedCache] set:[url absoluteString]
-                                    data:[[NSData alloc] initWithData:UIImagePNGRepresentation(image)]];
-        }
         response(image);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *res, NSError *error){
         response(nil);
