@@ -53,6 +53,10 @@
     }
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:30.0];
     [self setImageWithURLRequest:request placeholderImage:placeholderImage success:^(NSURLRequest *request, NSHTTPURLResponse *res, UIImage *image){
+        if (cached) {
+            [[FileCache sharedCache] set:[url absoluteString]
+                                    data:[[NSData alloc] initWithData:UIImagePNGRepresentation(image)]];
+        }
         response(image);
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *res, NSError *error){
         response(nil);
