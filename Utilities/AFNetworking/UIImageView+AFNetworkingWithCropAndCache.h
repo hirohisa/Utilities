@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, ImageViewCropType) {
     ImageViewCropTypeNone = 0,
     ImageViewCropTypeAdjustWidth = 1,
     ImageViewCropTypeAdjustHeight = 2
-} ImageViewCropType;
+};
 
 @interface UIImageView (AFNetworkingWithCropAndCache)
 - (void)setImageWithURL:(NSURL *)url placeholderImage:(UIImage *)placeholderImage cached:(BOOL)cached finished:(void (^)(BOOL))finished;
