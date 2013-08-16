@@ -33,3 +33,12 @@ extern void SwizzleInstanceMethod(Class c, SEL original, SEL alternative);
 #else                            // iOS 3.X or non-ARC projects
 #define __block_weak        __block
 #endif
+
+#ifdef __OBJC__
+#ifdef DEBUG
+# define ALERT_LOG(...) ;
+#else
+# define ALERT_LOG(...) UIAlertView *a = [[UIAlertView alloc] initWithTitle:@"" message:__VA_ARGS__ delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];\
+[a show];
+#endif
+#endif
