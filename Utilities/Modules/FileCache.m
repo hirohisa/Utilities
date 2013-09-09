@@ -105,7 +105,7 @@
 
 #pragma mark - encoding
 - (NSString *)encode:(NSString *)path {
-    NSString *escaped = (__bridge NSString*)CFURLCreateStringByAddingPercentEscapes(
+    NSString *escaped = (__bridge_transfer NSString*)CFURLCreateStringByAddingPercentEscapes(
                                                                                           kCFAllocatorDefault,
                                                                                           (__bridge CFStringRef)path,
                                                                                           NULL,
