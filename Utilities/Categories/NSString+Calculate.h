@@ -1,5 +1,5 @@
 //
-//  NSString+Calcurate.h
+//  NSString+Calculate.h
 //  Utilities
 //
 //  Created by Hirohisa Kawasaki on 13/06/10.

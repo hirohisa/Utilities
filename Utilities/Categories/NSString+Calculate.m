@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 Hirohisa Kawasaki. All rights reserved.
 //
 
-#import "NSString+Calcurate.h"
+#import "NSString+Calculate.h"
 
 @implementation NSString (Calcurate)
 -(CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font
