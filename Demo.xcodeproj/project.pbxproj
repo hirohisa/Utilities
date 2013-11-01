@@ -17,8 +17,11 @@
 		10302574172F8C98002FB414 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10302573172F8C98002FB414 /* Default@2x.png */; };
 		10302576172F8C98002FB414 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10302575172F8C98002FB414 /* Default-568h@2x.png */; };
 		10302585172F8D09002FB414 /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10302584172F8D09002FB414 /* DemoViewController.m */; };
-		A1B9CB9F1746813E0056E32F /* NSDate+Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB961746813E0056E32F /* NSDate+Comparison.m */; };
-		A1B9CBA01746813E0056E32F /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB981746813E0056E32F /* UIColor+Hex.m */; };
+		10D63A871823B22A00F82CFB /* NSDate+Comparison.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D63A801823B22A00F82CFB /* NSDate+Comparison.m */; };
+		10D63A881823B22A00F82CFB /* NSString+Calculate.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D63A821823B22A00F82CFB /* NSString+Calculate.m */; };
+		10D63A891823B22A00F82CFB /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D63A841823B22A00F82CFB /* UIColor+Hex.m */; };
+		10D63A8C1823B25B00F82CFB /* UINavigationController+Flatten.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D63A8B1823B25A00F82CFB /* UINavigationController+Flatten.m */; };
+		10D63A951823B3C200F82CFB /* NSString+NSNumberFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 10D63A941823B3C000F82CFB /* NSString+NSNumberFormatter.m */; };
 		A1B9CBA11746813E0056E32F /* FileCache.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB9B1746813E0056E32F /* FileCache.m */; };
 		A1B9CBA21746813E0056E32F /* UTDefinitions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B9CB9D1746813E0056E32F /* UTDefinitions.m */; };
 /* End PBXBuildFile section */
@@ -39,10 +42,16 @@
 		10302575172F8C98002FB414 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		10302583172F8D09002FB414 /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		10302584172F8D09002FB414 /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
-		A1B9CB951746813E0056E32F /* NSDate+Comparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Comparison.h"; sourceTree = "<group>"; };
-		A1B9CB961746813E0056E32F /* NSDate+Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Comparison.m"; sourceTree = "<group>"; };
-		A1B9CB971746813E0056E32F /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		A1B9CB981746813E0056E32F /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		10D63A7F1823B22A00F82CFB /* NSDate+Comparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Comparison.h"; sourceTree = "<group>"; };
+		10D63A801823B22A00F82CFB /* NSDate+Comparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Comparison.m"; sourceTree = "<group>"; };
+		10D63A811823B22A00F82CFB /* NSString+Calculate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Calculate.h"; sourceTree = "<group>"; };
+		10D63A821823B22A00F82CFB /* NSString+Calculate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Calculate.m"; sourceTree = "<group>"; };
+		10D63A831823B22A00F82CFB /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		10D63A841823B22A00F82CFB /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		10D63A851823B22A00F82CFB /* UINavigationController+Flatten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Flatten.h"; sourceTree = "<group>"; };
+		10D63A8B1823B25A00F82CFB /* UINavigationController+Flatten.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Flatten.m"; sourceTree = "<group>"; };
+		10D63A931823B3BE00F82CFB /* NSString+NSNumberFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSNumberFormatter.h"; sourceTree = "<group>"; };
+		10D63A941823B3C000F82CFB /* NSString+NSNumberFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSNumberFormatter.m"; sourceTree = "<group>"; };
 		A1B9CB9A1746813E0056E32F /* FileCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCache.h; sourceTree = "<group>"; };
 		A1B9CB9B1746813E0056E32F /* FileCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileCache.m; sourceTree = "<group>"; };
 		A1B9CB9C1746813E0056E32F /* UTDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTDefinitions.h; sourceTree = "<group>"; };
@@ -131,10 +140,16 @@
 		A1B9CB941746813E0056E32F /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				A1B9CB951746813E0056E32F /* NSDate+Comparison.h */,
-				A1B9CB961746813E0056E32F /* NSDate+Comparison.m */,
-				A1B9CB971746813E0056E32F /* UIColor+Hex.h */,
-				A1B9CB981746813E0056E32F /* UIColor+Hex.m */,
+				10D63A7F1823B22A00F82CFB /* NSDate+Comparison.h */,
+				10D63A801823B22A00F82CFB /* NSDate+Comparison.m */,
+				10D63A811823B22A00F82CFB /* NSString+Calculate.h */,
+				10D63A821823B22A00F82CFB /* NSString+Calculate.m */,
+				10D63A831823B22A00F82CFB /* UIColor+Hex.h */,
+				10D63A841823B22A00F82CFB /* UIColor+Hex.m */,
+				10D63A851823B22A00F82CFB /* UINavigationController+Flatten.h */,
+				10D63A8B1823B25A00F82CFB /* UINavigationController+Flatten.m */,
+				10D63A931823B3BE00F82CFB /* NSString+NSNumberFormatter.h */,
+				10D63A941823B3C000F82CFB /* NSString+NSNumberFormatter.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -216,10 +231,13 @@
 				1030256C172F8C98002FB414 /* main.m in Sources */,
 				10302570172F8C98002FB414 /* AppDelegate.m in Sources */,
 				10302585172F8D09002FB414 /* DemoViewController.m in Sources */,
-				A1B9CB9F1746813E0056E32F /* NSDate+Comparison.m in Sources */,
-				A1B9CBA01746813E0056E32F /* UIColor+Hex.m in Sources */,
 				A1B9CBA11746813E0056E32F /* FileCache.m in Sources */,
 				A1B9CBA21746813E0056E32F /* UTDefinitions.m in Sources */,
+				10D63A871823B22A00F82CFB /* NSDate+Comparison.m in Sources */,
+				10D63A881823B22A00F82CFB /* NSString+Calculate.m in Sources */,
+				10D63A891823B22A00F82CFB /* UIColor+Hex.m in Sources */,
+				10D63A8C1823B25B00F82CFB /* UINavigationController+Flatten.m in Sources */,
+				10D63A951823B3C200F82CFB /* NSString+NSNumberFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
