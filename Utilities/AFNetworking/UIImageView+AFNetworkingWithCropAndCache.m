@@ -9,6 +9,62 @@
 #import "UIImageView+AFNetworkingWithCropAndCache.h"
 #import "UIImageView+AFNetworking.h"
 
+@implementation UIImage (Crop)
+- (UIImage *)croppedWithSize:(CGSize)size
+{
+    return [self croppedWithSize:size alignment:ImageCropAlignmentCener];
+}
+
+- (UIImage *)croppedWithSize:(CGSize)size alignment:(ImageCropAlignment)alignment
+{
+    CGFloat offsetX = 0, offsetY = 0;
+    switch (alignment) {
+        case ImageCropAlignmentCener: {
+            offsetX = [self _centerWithLength:size.width max:self.size.width];
+            offsetY = [self _centerWithLength:size.height max:self.size.height];
+        }
+            break;
+        case ImageCropAlignmentTop: {
+            offsetX = [self _centerWithLength:size.width max:self.size.width];
+        }
+            break;
+        case ImageCropAlignmentBottom: {
+            offsetX = [self _centerWithLength:size.width max:self.size.width];
+            offsetY = self.size.height - size.height;
+        }
+            break;
+        case ImageCropAlignmentLeft:  {
+            offsetY = [self _centerWithLength:size.height max:self.size.height];
+        }
+            break;
+        case ImageCropAlignmentRight: {
+            offsetX = self.size.width - size.width;
+            offsetY = [self _centerWithLength:size.height max:self.size.height];
+        }
+            break;
+        default:
+            break;
+    }
+
+    return [self _croppedWithSize:size offset:CGPointMake(offsetX, offsetY)];
+}
+
+- (UIImage *)_croppedWithSize:(CGSize)size offset:(CGPoint)offset
+{
+    CGRect croppingRect = CGRectMake(offset.x, offset.y, size.width, size.height);
+    CGImageRef imageRef = CGImageCreateWithImageInRect(self.CGImage, croppingRect);
+    UIImage *resultImage =[UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+
+    return resultImage;
+}
+
+- (CGFloat)_centerWithLength:(CGFloat)length max:(CGFloat)max
+{
+    return (max-length)/2;
+}
+@end
+
 @implementation UIImageView (AFNetworkingWithCropAndCache)
 
 #pragma mark - public
