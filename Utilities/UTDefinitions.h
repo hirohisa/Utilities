@@ -25,6 +25,9 @@ extern void SwizzleInstanceMethod(Class c, SEL original, SEL alternative);
 #define __OS_VERSION__ [[[UIDevice currentDevice] systemVersion] floatValue]
 #define OS_REQUIRED(VERSION) __OS_VERSION__ >= VERSION
 
+//
+#define __IS_PAD__ (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
+
 // weak, block
 #if __has_feature(objc_arc_weak) // iOS 5 or above
 #define __block_weak        __weak
