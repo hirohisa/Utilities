@@ -91,7 +91,7 @@
 {
     __block_weak UIImageView *blockSelf = self;
     [self requestImageWithURL:url placeholderImage:placeholderImage cached:cached response:^(UIImage *image){
-        if (image != nil) {
+        if (image) {
             blockSelf.image = [blockSelf crop:image size:size type:type];
         }
         finished(YES);
