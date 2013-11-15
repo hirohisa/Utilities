@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface NSString (Calcurate)
--(CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font;
+- (CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font;
+- (NSUInteger)numberOfComposedCharacterSequences;
 @end
