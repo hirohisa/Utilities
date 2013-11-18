@@ -27,7 +27,7 @@
 - (NSUInteger)numberOfComposedCharacterSequences
 {
     __block NSUInteger count = 0;
-    [self enumerateSubstringsInRange:NSMakeRange(0, self.length)
+    [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
                              options:NSStringEnumerationByComposedCharacterSequences
                           usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
                               ++count;
@@ -35,5 +35,19 @@
      ];
 
     return count;
+}
+
+- (NSString *)substringComposedCharacterSequencesToIndex:(NSUInteger)to
+{
+    __block NSMutableString *string = [@"" mutableCopy];
+    [self enumerateSubstringsInRange:NSMakeRange(0, [self length])
+                             options:NSStringEnumerationByComposedCharacterSequences
+                          usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                              if ([string numberOfComposedCharacterSequences] < to) {
+                                  [string appendString:substring];
+                              }
+                          }
+     ];
+    return [string copy];
 }
 @end

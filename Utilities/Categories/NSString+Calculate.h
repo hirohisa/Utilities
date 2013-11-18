@@ -11,4 +11,5 @@
 @interface NSString (Calcurate)
 - (CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font;
 - (NSUInteger)numberOfComposedCharacterSequences;
+- (NSString *)substringComposedCharacterSequencesToIndex:(NSUInteger)to;
 @end
