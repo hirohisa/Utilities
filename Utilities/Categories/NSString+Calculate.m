@@ -8,7 +8,7 @@
 
 #import "NSString+Calculate.h"
 
-@implementation NSString (Calcurate)
+@implementation NSString (Calculate)
 - (CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font
 {
 	CGSize boundingSize = CGSizeMake(width, CGFLOAT_MAX);

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NSString (Calcurate)
+@interface NSString (Calculate)
 - (CGSize)sizeForWidth:(CGFloat)width font:(UIFont *)font;
 - (NSUInteger)numberOfComposedCharacterSequences;
 - (NSString *)substringComposedCharacterSequencesToIndex:(NSUInteger)to;
